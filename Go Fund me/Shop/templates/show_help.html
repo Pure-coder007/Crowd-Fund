@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Reason</th>
+        <th scope="col">Amount Requested</th>
+        <th scope="col">Amount Donated</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for fund in funds %}
+        <tr>
+            <td>{{fund.reason}}</td>
+            <td>${{fund.amount_needed}}</td>
+            <td>${{fund.amount_donated}}</td>
+            <td>
+                <a href="{{url_for('donate', fund_id=fund.id)}}">Donate</a>
+            </td>
+          </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+{% endblock body %}
+    

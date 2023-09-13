@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+{% block body %}
+
+<h1 style="color: red;">Request Funds</h1>
+
+<!-- Displaying the progress bar -->
+<!--<h2>Donation Progress</h2>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" 
+         style="width: {{ percentage }}%; height: 20px" 
+         aria-valuenow="{{ percentage }}" 
+         aria-valuemin="0" aria-valuemax="100">{{ percentage }}%</div>
+</div>
+<p>Amount Raised: ${{ fund_request.amount_donated }}</p>
+<p>Goal: ${{ fund_request.amount_needed }}</p>-->
+
+<form action="{{ url_for('help') }}" method="post">
+    <label for="reason">Reason for asking for help:</label><br>
+    <textarea name="reason" style="width:350px;" id="reason" rows="4" required ></textarea><br>
+    <label for="amount_needed">Amount Needed:</label><br>
+    <input type="number" name="amount_needed" id="amount_needed" required><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock body %}

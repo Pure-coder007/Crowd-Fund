@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+{% for fund, donation_ in donations.items() %}
+
+<h3 class="text-center text-muted">{{ fund.reason.title() }}</h3>
+<table class="table mt-5">
+    
+        <tr>
+            <th>Donator</th>
+            <th>Donation Amount</th> <!-- or any other related details you have in your model -->
+            <!-- if you have a timestamp for when the donation was made -->
+        </tr>
+    </thead>
+    {% for donation  in donation_ %}
+    <thead>
+    <tbody>
+            
+            
+                
+            
+            <tr>
+                <td>{{ donation.name }}</td> <!-- This might be a related model's field or just a string, adjust accordingly -->
+                <td>${{ donation.donation_amount }}</td>
+                <!-- Assuming you have a timestamp field -->
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    {% endfor %}
+
+<a href="{{ url_for('admin_users') }}" class="btn btn-secondary">Back to User List</a>
+{% endblock %}

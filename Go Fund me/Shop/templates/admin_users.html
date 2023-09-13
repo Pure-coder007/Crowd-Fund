@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1 class="mt-5">Registered Users</h1>
+
+<table class="table mt-5" >
+    <thead>
+        <h2>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr> 
+    </h2>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        {% if not user.is_admin %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td class="ml-10">
+                    {% if current_user.is_admin %}
+                   <!-- <form action="{{ url_for('admin_delete_user', user_id=user.id) }}" method="post" class="d-inline">
+                        <input type="submit" value="Delete User" class="btn btn-danger">
+                    </form>-->
+                    
+
+                    <a href="{{ url_for('view_user_items', user_id=user.id) }}" class="btn btn-primary">View Donations</a>
+
+                    {% endif %}
+                </td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if current_user.is_admin %}
+    <a href="{{ url_for('logout') }}" class="btn btn-primary">Log Out</a>
+{% endif %}
+{% endblock %}

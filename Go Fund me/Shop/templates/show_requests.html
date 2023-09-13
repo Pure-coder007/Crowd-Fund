@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Choose an Action</h1>
+
+<a href="{{ url_for('help')}}" class="btn btn-primary">Request For Help</a>
+<br>
+<br>
+<a href="{{ url_for('view_request')}}" class="btn btn-primary">View Pending Request</a>
+
+{% endblock body %}

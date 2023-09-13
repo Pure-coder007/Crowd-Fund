@@ -1,0 +1,24 @@
+    {% extends 'base.html' %}
+
+    {% block body %}
+    <a href="{{ url_for('Index')}}"><button type="button" class="btn btn-success start2" >Go Back</button></a>
+    <!-- Displaying the progress bar -->
+<h2>Donation Progress</h2>
+
+{% for percentage, fund_request in percentages.items() %}
+    
+<div class="card mb-4 p-4">
+<div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" 
+         style="width: {{ percentage }}%; height: 20px" 
+         aria-valuenow="{{ percentage }}" 
+         aria-valuemin="0" aria-valuemax="100">{{ percentage }}%</div>
+        </div>
+        <p>Amount Raised: ${{ fund_request.amount_donated }}</p>
+        <p>Goal: ${{ fund_request.amount_needed }}</p>
+
+    </div>
+        
+        {% endfor %}
+
+    {% endblock body %}

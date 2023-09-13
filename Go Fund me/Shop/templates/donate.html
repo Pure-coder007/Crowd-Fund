@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>Donation Progress</h2>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" 
+         style="width: {{ percentage }}%; height: 20px" 
+         aria-valuenow="{{ percentage }}" 
+         aria-valuemin="0" aria-valuemax="100">{{ percentage }}%</div>
+</div>
+<h1>Support Our Cause</h1>
+
+<a href="{{ host_url }}donate/{{ user_id }}">Donation Link</a>
+<p>Enter your donation details below:</p>
+
+<form action="" method="post">
+    <label for="name">Full Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="amount">Donation Amount ($):</label><br>
+    <input type="number" id="amount" name="amount" min="1" required><br><br>
+    {% if fund_request.amount_needed != fund_request.amount_donated %}
+
+    <input type="submit" value="Donate Now">
+    {% endif %}
+
+    
+    <a href="{{ url_for('leave')}}" class="btn btn-info">Leave</a>
+    
+</form>
+</body>
+</html>
+{% endblock body %}

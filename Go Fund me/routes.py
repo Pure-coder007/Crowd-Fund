@@ -1,11 +1,11 @@
 from flask import render_template, request, redirect, url_for, flash, request
-from Shop import app, db, cloudinary, bcrypt
-from Shop.forms import RegistrationForm, LoginForm
-from Shop.models import User, Data, UserRequest, Fund, Donator
+from app import app, db, cloudinary, bcrypt
+from forms import RegistrationForm, LoginForm
+from models import User, Data, UserRequest, Fund, Donator
 from flask_login import login_user, current_user, logout_user, login_required
 import random
 from flask_mail import Message
-from Shop import mail
+from app import mail
 
 
 

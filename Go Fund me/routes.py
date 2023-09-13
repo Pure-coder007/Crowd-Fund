@@ -14,10 +14,10 @@ OTP = random.randint(1000, 9999)
 
 
 # Creating the Homepage route
-@app.route('/Index')
+@app.route('/index')
 @app.route('/')
 def Index():    
-    return render_template("Index.html")
+    return render_template("index.html")
 
 
 

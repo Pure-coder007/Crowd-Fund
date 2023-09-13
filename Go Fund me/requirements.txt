@@ -76,3 +76,4 @@ virtualenvwrapper-win
 Werkzeug
 wtf
 WTForms
+gunicorn
